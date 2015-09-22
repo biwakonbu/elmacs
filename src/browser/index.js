@@ -1,5 +1,6 @@
+console.log('file://' + __dirname + '/../renderer/index.html');
 var app = require('app');
-var BrowserWindow = require('brawser-window');
+var BrowserWindow = require('browser-window');
 
 // Report crashes to our server.
 require('crash-reporter').start();
@@ -25,9 +26,6 @@ app.on('ready', function() {
 
   // and load the index.html of the app.
   mainWindow.loadUrl('file://' + __dirname + '/../renderer/index.html');
-
-  // Open the DevTools.
-  mainWindow.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
