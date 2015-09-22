@@ -1,10 +1,14 @@
 {
   "name": "elmacs",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "app/browser/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "compile": "gulp compile",
+      "setup": "npm install",
+      "start": "electron .",
+      "watch": "gulp watch"
   },
   "author": "Ryo HIGASHIGAWA <ryo.higasigawa@gmail.com> (https://github.com/biwakonbu)",
   "license": "MIT",
