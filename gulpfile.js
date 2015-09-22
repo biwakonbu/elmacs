@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var ts = require('gulp-typescript');
 var plumber = require('gulp-plumber');
 var sass = require('gulp-sass');
 var sym = require('gulp-sym');
@@ -7,7 +8,8 @@ var watch = require('gulp-watch');
 gulp.task (
     'compile',
     [
-        'compile-js',
+        // 'compile-js',
+        'compile-ts',
         'compile-html',
         'compile-scss',
         'compile-symlink'
@@ -21,6 +23,22 @@ gulp.task(
             .pipe(plumber())
             .pipe(gulp.dest('app/'));
     }
+);
+
+gulp.task(
+    'compile-ts',
+    function () {
+        tsResult = gulp.src('src/**/*.ts')
+            .pipe(ts({
+                declaration: true,
+                noExternalResolve: true
+            }));
+    }
+
+    return merge([
+        tsResult.dts.pipe(gulp.dest('app/defs')),
+        tsResult.js.pipe('app')
+    ])
 );
 
 gulp.task(
