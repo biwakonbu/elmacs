@@ -1,3 +1,7 @@
+## Emacs files.
 *.*~
 *~
 \#*
+
+## Node Libraries
+node_modules/*
